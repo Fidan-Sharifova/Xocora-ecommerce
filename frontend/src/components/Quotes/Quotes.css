@@ -1,0 +1,57 @@
+.quotes-section {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(246, 244, 242);
+}
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.karusel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 90px;
+}
+.carousel {
+  height: 40vh;
+}
+.swiper-pagination-bullet {
+  border-radius: 0 !important;
+  background-color: brown !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: rgb(192, 100, 78) !important;
+}
+
+.mySwiper {
+  /* margin-top: 20px; */
+  width: 100%;
+  height: 100%;
+  /* padding-bottom: 115px !important; */
+}
+
+.swiper-slide {
+  text-align: center !important;
+  font-size: 18px;
+  margin: 0 auto;
+  /* Center slide text vertically */
+  /* padding: 0 22px 65px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: none !important;
+  gap: 30px;
+}
+.swiper-slide p {
+  margin: 0 auto;
+  width: 90%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

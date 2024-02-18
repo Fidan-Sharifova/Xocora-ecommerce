@@ -1,0 +1,16 @@
+.pics-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(246, 244, 242);
+  height: 60vh;
+  padding-top: 10vh;
+  position: relative;
+  img {
+    width: 25%;
+    &:hover {
+      opacity: 0.9;
+      transition: all 0.3s;
+    }
+  }
+}

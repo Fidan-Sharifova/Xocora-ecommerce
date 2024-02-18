@@ -1,0 +1,57 @@
+.counted-products-cards{
+    background-color: rgb(246,244,242);
+    height: 90vh;
+    width: 100%;
+    padding: 0 50px 0 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    
+}
+.second ,.forth{
+    padding-top: 70px;
+}
+.counted-products-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &:hover{
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+}
+.counted-product-image img{
+    overflow: hidden;
+    width: 95%;
+    scale: 1.5;
+
+}
+.counted-product-image{
+    overflow: hidden;
+}
+article{
+    padding-top: 30px;
+    text-align: center;
+    h5{
+        color: rgb(81,70,51);
+        font-family: 'Comic Neue', cursive;
+    }
+    p{
+        color: rgb(113,97,71);
+    }
+}
+.counted-products-card:hover{
+    h5{
+        color: rgb(191,98,76);
+    }
+    .counted-product-image {
+        /* transition: all 0.3s; */
+        img{
+            /* width: 100%; */
+            transform: scale(1.2);
+            transition: all 0.3s;
+        }
+    }
+}

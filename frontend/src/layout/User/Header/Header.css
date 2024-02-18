@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@keyframes animation {
+  from {
+    left: 20%;
+    opacity: 0.1;
+  }
+  to {
+    left: -10%;
+    opacity: 1;
+  }
+}
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+header {
+  width: 100%;
+  padding: 10px 0;
+  background-color: transparent;
+  position: absolute;
+  z-index: 4;
+}
+.header-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo img {
+  /* width: 70%; */
+  /* margin-top: 2vh; */
+  padding-bottom: 20px;
+}
+nav {
+  width: 60%;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  li {
+    list-style: none;
+    &:hover {
+      cursor: pointer;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    i {
+      color: white;
+      font-size: 10px;
+    }
+  }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 13%;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 150%;
+    height: 45%;
+    top: 100%;
+  }
+}
+.dropdown i {
+  margin-left: 5px;
+}
+.dropdown:hover {
+  .dropdown-content {
+    display: block;
+    transition: all 4s;
+  }
+  i {
+    transform: rotate(-180deg);
+  }
+}
+.dropdown-content {
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: none;
+  position: absolute;
+  left: -10%;
+  padding-right: 30%;
+  top: 150%;
+  transform: translate(-10%);
+  background-color: white;
+  width: 160px;
+  z-index: 1;
+  animation: animation 0.8s forwards;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    li {
+      a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+          color: rgb(135, 52, 52);
+        }
+      }
+    }
+  }
+}
+.navbar-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  font-size: 25px;
+}
+.canvasBtn {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.offcanvas {
+  height: 25vh !important;
+}
+.offcanvas-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.search-form {
+  position: absolute;
+  bottom: 50%;
+  width: 50%;
+  height: 7vh;
+  border: 1px solid rgb(135, 52, 52);
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(244, 244, 244);
+}
+.searchInp {
+  outline: none;
+  border: none;
+  width: 93%;
+  font-size: 20px;
+  background-color: transparent;
+}
+.searchBtn {
+  color: rgb(81, 70, 51);
+}
+.btn-close {
+  font-size: 15px;
+}
+.offcanvas-end {
+  height: 100% !important;
+}
+.offcanvas-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.basketDatas {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  /* height: 100%; */
+  gap: 20px;
+  /* background-color: red; */
+}
+.go-to-basket {
+  /* margin-top: 50vh; */
+  font-size: 20px;
+  &:hover {
+    color: brown !important;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+}
+.basket-canvas-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  width: 90% !important;
+}
+.basket-canvas-card img {
+  width: 150px;
+}
+.basket-canvas-card span {
+  font-size: 15px;
+}
+.basket-canvas-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  /* background-color: blue; */
+  gap: 10px;
+  padding-right: 10px;
+}
+.item-count-controller {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 15px;
+  /* background-color: green; */
+  width: 70%;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+}
+.basket-canvas-btn {
+  background-color: transparent;
+  border: none;
+}
