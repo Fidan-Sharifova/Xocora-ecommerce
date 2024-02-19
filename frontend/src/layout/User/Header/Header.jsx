@@ -97,7 +97,7 @@ const Header = () => {
               </div>
             </div>
 
-            <Link style={{ color: "white" }}>
+            <Link to={"/login"} style={{ color: "white" }}>
               <CiUser />
             </Link>
 

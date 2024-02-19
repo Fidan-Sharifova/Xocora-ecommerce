@@ -3,6 +3,8 @@ import ROUTES from "./router/index.routes";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dataContext from "./context/dataContext";
+import  { Toaster }  from "react-hot-toast";
+import toast from "react-hot-toast";
 const router = createBrowserRouter(ROUTES);
 function App() {
   const [data, setData] = useState([]);
@@ -28,14 +30,14 @@ function App() {
         item: item,
         totalPrice: item.price,
       };
-      alert("Added To Basket");
+      toast.success("Added to basket");
       setBasket([...basket, newBasketItem]);
       localStorage.setItem(
         "basketItems",
         JSON.stringify([...basket, newBasketItem])
       );
     } else {
-      alert("The item is already in the basket");
+      toast("The item is already in the basket");
       // target.count += 1;
       // target.totalPrice = target.price * target.count;
       // setBasket([...basket]);
@@ -87,6 +89,7 @@ function App() {
     const target = wishlist.find((prod) => prod._id == item._id);
     if (target) {
       alert("Item is already in Wishlist");
+      toast.succes("added to basket");
     } else {
       setWishlist([...wishlist, item]);
       localStorage.setItem("wishlist", JSON.stringify([...wishlist, item]));
@@ -102,9 +105,7 @@ function App() {
     localStorage.setItem("wishlist", JSON.stringify([...wishlist]));
   };
 
-  const handleSort=()=>{
-    
-  }
+  const handleSort = () => {};
 
   useEffect(() => {
     axios
@@ -136,6 +137,7 @@ function App() {
   };
   return (
     <dataContext.Provider value={values}>
+      <Toaster />
       <RouterProvider router={router} />
     </dataContext.Provider>
   );

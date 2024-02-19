@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 const PerfectGiftsCard = () => {
   const { data, addToWishlist, addToBasket } = useContext(dataContext);
 

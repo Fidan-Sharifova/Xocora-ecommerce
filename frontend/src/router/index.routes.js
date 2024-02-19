@@ -6,61 +6,70 @@ import Basket from "../pages/User/Basket/Basket";
 import Contact from "../pages/User/Contact/Contact";
 import Detail from "../pages/User/Detail/Detail";
 import Home from "../pages/User/Home/Home";
+import Login from "../pages/User/Login/Login";
+import Register from "../pages/User/Register/Register";
 import Shop from "../pages/User/Shop/Shop";
 import UserRoot from "../pages/User/UserRoot";
 import Wishlist from "../pages/User/Wishlist/Wishlist";
 
 const ROUTES = [
-    {
-      path: "/",
-      element: <UserRoot/>,
-      children: [
-        {
-          path: "",
-          element: <Home/>,
-        },
-        {
-          path:":id",
-          element:<Detail/>
-        },
-        {
-          path:"wishlist",
-          element:<Wishlist/>
-        },
-        {
-          path:"basket",
-          element:<Basket/>
-        },
-        {
-          path:"contact",
-          element:<Contact/>
-        },
-        {
-          path:"aboutUs",
-          element:<AboutUs/>
-        },
-        {
-          path:"aboutMe",
-          element:<AboutMe/>
-        },
-        {
-          path:"shop",
-          element:<Shop/>
-        }
-     
-      ],
-    },
-    {
-      path: "/admin",
-      element: <AdminRoot/>,
-      children: [
-        {
-            path:"",
-            element:<Dashboard/>
-        }
-      ],
-    },
-  ];
+  {
+    path: "/",
+    element: <UserRoot />,
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+      {
+        path: ":id",
+        element: <Detail />,
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist />,
+      },
+      {
+        path: "basket",
+        element: <Basket />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "aboutMe",
+        element: <AboutMe />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminRoot />,
+    children: [
+      {
+        path: "",
+        element: <Dashboard />,
+      },
+    ],
+  },
+];
   
   export default ROUTES;
   
