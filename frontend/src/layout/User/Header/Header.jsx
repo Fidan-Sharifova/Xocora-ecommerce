@@ -34,7 +34,7 @@ const Header = () => {
                 <Link>Product</Link>
               </li>
               <li className="dropdown">
-                <Link>Blog</Link>
+                <Link to={"/blog"}>Blog</Link>
               </li>
 
               <li className="dropdown">

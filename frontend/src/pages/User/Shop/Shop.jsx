@@ -14,14 +14,10 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [priceRange, setPriceRange] = useState([0, 1000]);
 
-  const toTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const toTopp = () => {
+    window.scrollTo(0,0);
   };
 
-  
   const handlePriceChange = (value) => {
     setPriceRange(value);
     console.log(value);
@@ -106,7 +102,7 @@ const Shop = () => {
                           <div className="card-links">
                             <div className="product-card--quickview product-card--page-link">
                               <Link
-                                onClick={toTop}
+                                onClick={toTopp}
                                 style={{ color: "rgb(81,70,51)" }}
                                 to={`/${item._id}`}
                               >

@@ -179,6 +179,7 @@ nav ul {
   /* height: 100%; */
   gap: 20px;
   /* background-color: red; */
+  height: max-content;
 }
 .go-to-basket {
   /* margin-top: 50vh; */
@@ -191,7 +192,7 @@ nav ul {
 }
 .basket-canvas-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   border: 1px solid gray;
   width: 90% !important;

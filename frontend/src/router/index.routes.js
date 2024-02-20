@@ -2,6 +2,7 @@ import Add from "../pages/Admin/Add/Add";
 import AdminRoot from "../pages/Admin/AdminRoot";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import Edit from "../pages/Admin/Edit/Edit";
+import Blog from "../pages/Blog/Blog";
 import AboutMe from "../pages/User/AboutMe/AboutMe";
 import AboutUs from "../pages/User/AboutUs/AboutUs";
 import Basket from "../pages/User/Basket/Basket";
@@ -59,6 +60,10 @@ const ROUTES = [
         path: "login",
         element: <Login />,
       },
+      {
+        path:"blog",
+        element:<Blog/>
+      }
     ],
   },
   {
@@ -73,10 +78,7 @@ const ROUTES = [
         path: "add",
         element: <Add />,
       },
-      {
-        path:"edit",
-        element:<Edit/>
-      }
+   
     ],
   },
 ];
