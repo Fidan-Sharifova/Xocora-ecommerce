@@ -46,7 +46,10 @@ const ProductCount = () => {
           />
         </div>
         <article>
-          <Link to={"/shop"} style={{ textDecoration: "none", color: "black" }}>
+          <Link
+            to={"/shop"}
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <h5>Boxed Chocolates</h5>
           </Link>
           <p>{categoriesCount["Boxed Gifts"] || 0} products</p>

@@ -2,6 +2,12 @@ import React from "react";
 import "./Personalized.css";
 import { Link } from "react-router-dom";
 const Personalized = () => {
+  const toTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="pesonalized-section">
       <div className="left_side">
@@ -19,9 +25,7 @@ const Personalized = () => {
           </i>
         </p>
         <button className="shopBtn">
-          <Link
-            to={"/shop"}
-          >
+          <Link onClick={toTop} to={"/shop"}>
             {" "}
             Shop Now
           </Link>

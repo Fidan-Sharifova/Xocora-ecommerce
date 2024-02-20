@@ -2,6 +2,12 @@ import React from "react";
 import "./LimitedEdition.css";
 import { Link } from "react-router-dom";
 const LimitedEdition = () => {
+  const toTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="limited-edition">
       <div className="left-side-background">
@@ -20,9 +26,7 @@ const LimitedEdition = () => {
         </p>
 
         <button className="shopBtn">
-          <Link
-            to={"/shop"}
-          >
+          <Link onClick={toTop} to={"/shop"}>
             {" "}
             Shop Now
           </Link>

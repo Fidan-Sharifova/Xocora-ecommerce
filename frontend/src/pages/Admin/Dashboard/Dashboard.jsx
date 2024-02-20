@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./Dashboard.css";
+import dataContext from "../../../context/dataContext";
 
 function Dashboard() {
-  const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const { handleDelete , data, setData} = useContext(dataContext);
 
   useEffect(() => {
     axios.get("http://localhost:1212/xocora/products").then((res) => {
@@ -12,12 +13,6 @@ function Dashboard() {
       setData(res.data);
     });
   }, []);
-
-  const handleDelete = (id) => {
-    axios.delete(`https://northwind.vercel.app/api/Products/${id}`).then(() => {
-      setData((previousData) => previousData.filter((item) => item.id !== id));
-    });
-  };
 
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
@@ -59,7 +54,7 @@ function Dashboard() {
                   <p>
                     <button
                       className="deleteBtn"
-                      onClick={() => handleDelete(item.id)}
+                      onClick={() => handleDelete(item._id)}
                     >
                       Delete
                     </button>

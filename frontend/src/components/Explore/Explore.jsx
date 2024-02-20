@@ -7,7 +7,7 @@ const Explore = () => {
      <div className="text-area">
         <p>SHOP OUR COLLECTIONS</p>
         <h1>EXPLORE OUR CHOCOLATE PRODUCTS</h1>
-     </div>
+     </div> 
     </div>
   )
 }

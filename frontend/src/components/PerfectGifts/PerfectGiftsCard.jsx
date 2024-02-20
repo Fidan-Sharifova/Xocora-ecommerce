@@ -9,7 +9,12 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 const PerfectGiftsCard = () => {
   const { data, addToWishlist, addToBasket } = useContext(dataContext);
-
+ const toTop= ()=>{
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  })
+ }
   return (
     <div className="PerfectGiftsCard">
       <div className="dataCards">
@@ -33,6 +38,7 @@ const PerfectGiftsCard = () => {
                       className="product-card--quickview product-card--page-link"
                     >
                       <Link
+                      onClick={toTop}
                         style={{ color: "rgb(81,70,51)" }}
                         to={`/${item._id}`}
                       >

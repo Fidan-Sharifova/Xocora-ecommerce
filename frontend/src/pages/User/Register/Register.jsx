@@ -14,7 +14,6 @@ const Register = () => {
       surName: "",
       email: "",
       password: "",
-      age: "",
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -108,21 +107,6 @@ const Register = () => {
           />
           {formik.touched.password && formik.errors.password ? (
             <div>{formik.errors.password}</div>
-          ) : null}
-
-          <label htmlFor="age"></label>
-          <input
-            className="formikInp"
-            placeholder="Age"
-            id="age"
-            name="age"
-            type="number"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.age}
-          />
-          {formik.touched.age && formik.errors.age ? (
-            <div>{formik.errors.age}</div>
           ) : null}
 
           <button type="submit" className="submit-btn">

@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import dataContext from "../../../context/dataContext";
+import toast from "react-hot-toast";
 
 const Add = () => {
   const { data, setData } = useContext(dataContext);
@@ -24,9 +25,7 @@ const Add = () => {
       desc: Yup.string()
         .max(200, "Must be 20 characters or less")
         .required("Required"),
-      price: Yup.number()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+      price: Yup.number().required("Required"),
       category: Yup.string()
         .max(80, "Must be 20 characters or less")
         .required("Required"),
@@ -38,6 +37,7 @@ const Add = () => {
         .then((res) => {
           setData([...data, values]);
         });
+      toast.success("New Data Added!");
       formik.resetForm();
     },
   });
@@ -119,12 +119,12 @@ const Add = () => {
             <div>{formik.errors.category}</div>
           ) : null}
 
-          <label htmlFor="email"></label>
+          <label htmlFor="isPopular"></label>
           <input
             className="formikInp"
-            placeholder=" Is Popular"
-            id="email"
-            name="email"
+            placeholder="Is Popular"
+            id="isPopular"
+            name="isPopular"
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

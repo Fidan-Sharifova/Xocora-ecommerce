@@ -31,8 +31,9 @@ const dataControllers = {
   delete: async (req, res) => {
     try {
       const { id } = req.params;
-      await dataModel.findByIdAndDelete(id);
-      res.send("item deleted");
+       await dataModel.findByIdAndDelete(id);
+       const prod=await dataModel.find({})
+      res.send(prod);
     } catch (error) {
       res.status(404).send("an error occurred while deleting data");
     }

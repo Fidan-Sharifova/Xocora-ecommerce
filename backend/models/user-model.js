@@ -15,7 +15,6 @@ const UserModel = mongoose.model(
         type: String,
         required: true,
       },
-      age: Number,
     },
     { timestamps: true }
   )

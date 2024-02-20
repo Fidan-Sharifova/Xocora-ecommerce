@@ -3,7 +3,7 @@ import ROUTES from "./router/index.routes";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dataContext from "./context/dataContext";
-import  { Toaster }  from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 const router = createBrowserRouter(ROUTES);
 function App() {
@@ -16,9 +16,7 @@ function App() {
       : []
   );
   const [isLogin, setIsLogin] = useState(
-    localStorage.getItem("")
-      ? JSON.parse(localStorage.getItem("wishlist"))
-      : []
+    localStorage.getItem("") ? JSON.parse(localStorage.getItem("wishlist")) : []
   );
   const [basket, setBasket] = useState(
     localStorage.getItem("basketItems")
@@ -75,6 +73,14 @@ function App() {
     localStorage.setItem("basketItems", JSON.stringify([...basket]));
   };
 
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:1212/xocora/products/${id}`).then((res) => {
+      const deletedData = data.filter((prod) => prod._id !== id);
+      setData(deletedData);
+    });
+    toast.success("Item deleted");
+  };
+
   const handleSearch = (e) => {
     const searching = e.target.value.trim().toLowerCase();
     if (searching === "") {
@@ -93,12 +99,11 @@ function App() {
   const addToWishlist = (item) => {
     const target = wishlist.find((prod) => prod._id == item._id);
     if (target) {
-      alert("Item is already in Wishlist");
-      toast.succes("added to basket");
+      toast("Item is already in Wishlist");
     } else {
       setWishlist([...wishlist, item]);
       localStorage.setItem("wishlist", JSON.stringify([...wishlist, item]));
-      alert("Added to Wishlist");
+      toast.success("Added to Wishlist");
     }
   };
 
@@ -151,6 +156,7 @@ function App() {
     decreaseCountBasket,
     increaseCountBasket,
     removeFromBasket,
+    handleDelete,
   };
   return (
     <dataContext.Provider value={values}>
