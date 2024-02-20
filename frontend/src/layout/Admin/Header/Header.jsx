@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import dataContext from "../../../context/dataContext";
 
 function Header() {
+  const { handleSearch } = useContext(dataContext);
   return (
     <div className="adminNavbar">
       <h1>Admin Page</h1>
+      <div className="inp_sort">
+        <input
+          className="admin_search"
+          type="text"
+          placeholder="Search.."
+          onChange={handleSearch}
+        />
+      </div>
       <div className="admin_navbar_links">
         <ul>
           <li>
@@ -15,20 +25,8 @@ function Header() {
           </li>
 
           <li>
-            <Link
-              to="add"
-              style={{ color: "white", textDecoration: "none" }}
-            >
+            <Link to="add" style={{ color: "white", textDecoration: "none" }}>
               Add Product
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="edit"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Edit Product
             </Link>
           </li>
         </ul>

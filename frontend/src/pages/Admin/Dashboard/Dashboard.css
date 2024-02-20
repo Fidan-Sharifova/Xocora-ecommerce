@@ -30,7 +30,6 @@
   color: white;
 }
 .inp_sort {
-  background-color: rgb(246, 244, 242);
   height: 90px;
   display: flex;
   justify-content: center;
@@ -46,4 +45,21 @@
   padding-left: 20px;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.admin-main-section {
+  width: 100%;
+  height: 200vh;
+  display: flex;
+}
+.admin-sidebar {
+  width: 15%;
+  height: 100%;
+  background-color: rgb(33, 37, 41);
+}
+.admin-datas-section {
+  width: 85%;
+  height: 100%;
+}
+.table-dark {
+  margin: 0 !important;
 }

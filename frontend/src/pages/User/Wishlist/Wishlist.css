@@ -2,8 +2,7 @@
   width: 100px;
 }
 .table {
-  margin: 0 !important;
-  margin-top: 5vh !important;
+  margin-top: 5vh ;
 }
 tr {
   text-align: center;
