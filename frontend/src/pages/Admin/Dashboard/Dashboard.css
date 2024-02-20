@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.addBtn {
+  width: 70px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(222, 174, 71);
+  color: white;
+}
+
+.deleteBtn {
+  width: 70px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(217, 78, 78);
+  color: white;
+}
+
+.editBtn {
+  width: 70px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(34, 156, 34);
+  color: white;
+}
+.inp_sort {
+  background-color: rgb(246, 244, 242);
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin_search {
+  width: 190px;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

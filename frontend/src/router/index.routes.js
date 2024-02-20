@@ -1,5 +1,7 @@
+import Add from "../pages/Admin/Add/Add";
 import AdminRoot from "../pages/Admin/AdminRoot";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
+import Edit from "../pages/Admin/Edit/Edit";
 import AboutMe from "../pages/User/AboutMe/AboutMe";
 import AboutUs from "../pages/User/AboutUs/AboutUs";
 import Basket from "../pages/User/Basket/Basket";
@@ -67,9 +69,16 @@ const ROUTES = [
         path: "",
         element: <Dashboard />,
       },
+      {
+        path: "add",
+        element: <Add />,
+      },
+      {
+        path:"edit",
+        element:<Edit/>
+      }
     ],
   },
 ];
-  
-  export default ROUTES;
-  
+
+export default ROUTES;

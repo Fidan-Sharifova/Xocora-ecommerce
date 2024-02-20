@@ -1,0 +1,44 @@
+.login-box {
+  width: 100%;
+  height: 80vh;
+  background-color: rgb(246, 244, 242);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  background-color: white;
+  width: 30%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+form h3 {
+  color: rgb(90, 79, 61);
+}
+.formikInp {
+  width: 85%;
+  height: 7vh;
+  padding-left: 2%;
+}
+.submit-btn {
+  width: 30%;
+  height: 6vh;
+  border: none;
+  background-color: rgb(90, 79, 61);
+  color: white;
+  margin-top: 5vh;
+  &:hover {
+    background-color: rgb(191, 98, 76);
+    transition: all 0.3 !important;
+  }
+}
+form p {
+  color: rgb(90, 79, 61);
+  a {
+    color: rgb(191, 98, 76);
+  }
+}

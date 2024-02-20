@@ -1,0 +1,16 @@
+.admin-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-add-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-form {
+  height: 100vh;
+  width: 50%;
+}

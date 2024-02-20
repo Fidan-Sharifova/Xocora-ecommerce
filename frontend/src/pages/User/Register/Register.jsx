@@ -30,11 +30,9 @@ const Register = () => {
       age: Yup.number().required("Required"),
     }),
     onSubmit: (values) => {
-      //   console.log(values);
       axios
         .post("http://localhost:1212/users/register", values)
         .then((res) => {
-          //   console.log(res);
           toast.success("register olundu");
           navigate("/");
         })
@@ -46,77 +44,92 @@ const Register = () => {
   });
 
   return (
-    <div>
+    <div className="register-page">
       <div className="other-page-header-backg"></div>
 
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.name}
-        />
-        {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
-        ) : null}
+      <div className="register-box">
+        {" "}
+        <form className="register-form" onSubmit={formik.handleSubmit}>
+          <label htmlFor="name"></label>
+          <input
+            className="formikInp"
+            placeholder="Name"
+            id="name"
+            name="name"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.name}
+          />
+          {formik.touched.name && formik.errors.name ? (
+            <div>{formik.errors.name}</div>
+          ) : null}
 
-        <label htmlFor="surName">Last Name</label>
-        <input
-          id="surName"
-          name="surName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.surName}
-        />
-        {formik.touched.surName && formik.errors.surName ? (
-          <div>{formik.errors.surName}</div>
-        ) : null}
+          <label htmlFor="surName"></label>
+          <input
+            className="formikInp"
+            placeholder="Surname"
+            id="surName"
+            name="surName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.surName}
+          />
+          {formik.touched.surName && formik.errors.surName ? (
+            <div>{formik.errors.surName}</div>
+          ) : null}
 
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
+          <label htmlFor="email"></label>
+          <input
+            className="formikInp"
+            placeholder="Email"
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
+          ) : null}
 
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
-        ) : null}
+          <label htmlFor="password"></label>
+          <input
+            className="formikInp"
+            placeholder="Password"
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <div>{formik.errors.password}</div>
+          ) : null}
 
-        <label htmlFor="age">Age</label>
-        <input
-          id="age"
-          name="age"
-          type="number"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.age}
-        />
-        {formik.touched.age && formik.errors.age ? (
-          <div>{formik.errors.age}</div>
-        ) : null}
+          <label htmlFor="age"></label>
+          <input
+            className="formikInp"
+            placeholder="Age"
+            id="age"
+            name="age"
+            type="number"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.age}
+          />
+          {formik.touched.age && formik.errors.age ? (
+            <div>{formik.errors.age}</div>
+          ) : null}
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

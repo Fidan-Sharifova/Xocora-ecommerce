@@ -14,9 +14,9 @@ const userController = {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {
-      res.send(user);
+      res.status(200).send(user);
     } else {
-      res.send("email ve ya password yanlisdir");
+      res.status(400).send("email ve ya password yanlisdir");
     }
   },
   getById: async (req, res) => {

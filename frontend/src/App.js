@@ -15,6 +15,11 @@ function App() {
       ? JSON.parse(localStorage.getItem("wishlist"))
       : []
   );
+  const [isLogin, setIsLogin] = useState(
+    localStorage.getItem("")
+      ? JSON.parse(localStorage.getItem("wishlist"))
+      : []
+  );
   const [basket, setBasket] = useState(
     localStorage.getItem("basketItems")
       ? JSON.parse(localStorage.getItem("basketItems"))
@@ -105,7 +110,18 @@ function App() {
     localStorage.setItem("wishlist", JSON.stringify([...wishlist]));
   };
 
-  const handleSort = () => {};
+  const handleSort = (e) => {
+    const sorting = e.target.value;
+    if (sorting == "df") {
+      setData([...original]);
+    } else if (sorting == "09") {
+      const sort09 = data.sort((a, b) => a.price - b.price);
+      setData([...sort09]);
+    } else if (sorting == "90") {
+      const sort90 = data.sort((a, b) => b.price - a.price);
+      setData([...sort90]);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -125,6 +141,7 @@ function App() {
     original,
     setOriginal,
     handleSearch,
+    handleSort,
     wishlist,
     setWishlist,
     addToWishlist,

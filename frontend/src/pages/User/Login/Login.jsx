@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,53 +24,61 @@ const Login = () => {
       axios
         .post("http://localhost:1212/users/login", { ...values })
         .then((res) => {
-          if (res.data) {
-            toast.success(`${res.data.name} Welcome Back!`);
-            navigate("/");
-          } else {
-            toast.error("Email or Password incorrect");
-          }
+          toast.success(`${res.data.name} Welcome Back!`);
+          navigate("/");
         })
         .catch((error) => {
-          console.error("HTTP error:", error);
-          toast.error("Server error. Please try again later.");
+          toast.error("Email or Password incorrect");
         });
       formik.resetForm();
     },
   });
   return (
-    <div>
+    <div className="login-page">
       <div className="other-page-header-backg"></div>
 
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
+      <div className="login-box">
+        <form onSubmit={formik.handleSubmit}>
+          <h3>Log in</h3>
 
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
-        ) : null}
+          <label htmlFor="email"></label>
+          <input
+            className="formikInp"
+            placeholder="Email Address"
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
+          ) : null}
 
-        <button type="submit">Submit</button>
-      </form>
+          <label htmlFor="password"></label>
+          <input
+            className="formikInp"
+            placeholder="Password"
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <div>{formik.errors.password}</div>
+          ) : null}
+
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
+          <p>
+            Don't have an account? <Link to={"/register"}>Register</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

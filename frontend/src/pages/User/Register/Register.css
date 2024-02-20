@@ -1,0 +1,13 @@
+.register-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15vh;
+}
+.register-page {
+  background-color: rgb(246, 244, 242);
+}
+.register-form {
+  height: 90vh;
+  width: 40%;
+}
