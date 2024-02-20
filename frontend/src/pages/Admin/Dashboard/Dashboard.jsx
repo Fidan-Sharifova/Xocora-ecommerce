@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "./Dashboard.css";
 import dataContext from "../../../context/dataContext";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [search, setSearch] = useState("");
-  const { handleDelete , data, setData} = useContext(dataContext);
+  const { handleDelete, data, setData } = useContext(dataContext);
 
   useEffect(() => {
     axios.get("http://localhost:1212/xocora/products").then((res) => {
@@ -62,7 +63,9 @@ function Dashboard() {
                 </td>
                 <td>
                   <p>
-                    <button className="editBtn">Edit</button>
+                    <Link to={`/admin/edit/${item._id}`}>
+                      <button className="editBtn">Edit</button>
+                    </Link>
                   </p>
                 </td>
               </tr>

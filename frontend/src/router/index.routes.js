@@ -78,7 +78,10 @@ const ROUTES = [
         path: "add",
         element: <Add />,
       },
-   
+   {
+    path:'edit/:id',
+    element:<Edit/>
+   }
     ],
   },
 ];

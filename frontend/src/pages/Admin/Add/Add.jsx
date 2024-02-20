@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import "./Add.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import dataContext from "../../../context/dataContext";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Add = () => {
   const { data, setData } = useContext(dataContext);
@@ -20,14 +20,14 @@ const Add = () => {
     validationSchema: Yup.object({
       image: Yup.string().required("Required"),
       name: Yup.string()
-        .max(80, "Must be 20 characters or less")
+        .max(20, "Must be 20 characters or less")
         .required("Required"),
       desc: Yup.string()
         .max(200, "Must be 20 characters or less")
         .required("Required"),
       price: Yup.number().required("Required"),
       category: Yup.string()
-        .max(80, "Must be 20 characters or less")
+        .max(100, "Must be 20 characters or less")
         .required("Required"),
       isPopular: Yup.boolean().required("Required"),
     }),
