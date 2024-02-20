@@ -49,6 +49,7 @@ const Register = () => {
       <div className="register-box">
         {" "}
         <form className="register-form" onSubmit={formik.handleSubmit}>
+          <h1>Register</h1>
           <label htmlFor="name"></label>
           <input
             className="formikInp"

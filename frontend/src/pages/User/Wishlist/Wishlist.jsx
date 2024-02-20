@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Wishlist.css";
 import dataContext from "../../../context/dataContext";
 import { Helmet } from "react-helmet";
-
+import { Link } from "react-router-dom";
 const Wishlist = () => {
   const { wishlist, deleteFromWishlist, handleSearch } =
     useContext(dataContext);
@@ -26,7 +26,12 @@ const Wishlist = () => {
                   <img src={item.image} alt="" />
                 </td>
                 <td>
-                  <p>{item.name}</p>
+                  <Link
+                    style={{ textDecoration: "none", color: "rgb(90,79,61)" }}
+                    to={`/${item._id}`}
+                  >
+                    <p>{item.name}</p>
+                  </Link>
                 </td>
                 <td>
                   <p>${item.price}</p>

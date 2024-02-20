@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Basket.css";
 import dataContext from "../../../context/dataContext";
 import { Helmet } from "react-helmet";
-
+import { Link } from "react-router-dom";
 const Basket = () => {
   const { basket, removeFromBasket, decreaseCountBasket, increaseCountBasket } =
     useContext(dataContext);
@@ -32,7 +32,12 @@ const Basket = () => {
                   <img src={item.item.image} alt={item.name} />
                 </td>
                 <td>
-                  <p>{item.item.name}</p>
+                  <Link
+                    style={{ textDecoration: "none", color: "rgb(90,79,61)" }}
+                    to={`/${item._id}`}
+                  >
+                    <p>{item.item.name}</p>
+                  </Link>
                 </td>
                 <td>
                   <p>${item.totalPrice}</p>

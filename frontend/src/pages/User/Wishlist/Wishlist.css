@@ -1,29 +1,22 @@
-.wishlist {
-  background-color: rgb(246, 244, 242);
-}
 .table img {
   width: 100px;
 }
 .table {
   margin: 0 !important;
+  margin-top: 5vh !important;
 }
 tr {
   text-align: center;
   padding-top: 50px;
 }
-td {
-  background-color: rgb(246, 244, 242) !important;
-}
+
 th p {
   padding-top: 40px !important;
 }
 td p {
   padding-top: 40px !important;
 }
-th {
-  background-color: rgb(246, 244, 242) !important;
-}
-.wishlist-table {
-  padding-top: 10vh;
-  padding-top: 10vh;
+td a:hover {
+  text-decoration: underline !important;
+  color: rgb(191, 98, 76) !important;
 }
