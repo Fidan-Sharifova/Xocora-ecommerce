@@ -1,20 +1,20 @@
-const User = require("../models/user-model");
+const Admin = require("../models/admin-model");
 const bcrypt = require("bcrypt");
 
-const userController = {
+const adminController = {
   getAll: async (req, res) => {
     try {
-      const users = await User.find({});
-      res.status(200).send(users);
+      const admins = await Admin.find({});
+      res.status(200).send(admins);
     } catch (error) {
       res.send(error);
     }
   },
   login: async (req, res) => {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (user && (await bcrypt.compare(password, user.password))) {
-      res.status(200).send(user);
+    const admin = await Admin.findOne({ email });
+    if (admin && (await bcrypt.compare(password, admin.password))) {
+      res.status(200).send(admin);
     } else {
       res.status(400).send("email ve ya password yanlisdir");
     }
@@ -22,33 +22,33 @@ const userController = {
   getById: async (req, res) => {
     try {
       const { id } = req.params;
-      const user = await User.findById(id);
-      res.status(200).send(user);
+      const admin = await Admin.findById(id);
+      res.status(200).send(admin);
     } catch (error) {
       res.status(404).send("user not found");
     }
   },
   register: async (req, res) => {
     const { name, surName, email, password } = req.body;
-    let user = await User.findOne({ email });
+    let admin = await Admin.findOne({ email });
     if (user) {
       return res.status(404).send("This email is already exist");
     }
     const salt = await bcrypt.genSalt(10);
     const newPassword = await bcrypt.hash(password, salt);
-    const newUser = new User({
+    const newAdmin = new Admin({
       name,
       surName,
       email,
-      password: newPassword
+      password: newPassword,
     });
-    await newUser.save();
-    res.status(201).send(newUser);
+    await newAdmin.save();
+    res.status(201).send(newAdmin);
   },
   delete: async (req, res) => {
     try {
       const { id } = req.params;
-      await User.findByIdAndDelete(id);
+      await Admin.findByIdAndDelete(id);
       res.send("user deleted");
     } catch (error) {
       res.send(error);
@@ -57,4 +57,4 @@ const userController = {
   edit: async (req, res) => {},
 };
 
-module.exports = { userController };
+module.exports = { adminController };

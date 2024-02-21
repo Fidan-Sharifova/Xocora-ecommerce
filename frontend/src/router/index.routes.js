@@ -2,7 +2,7 @@ import Add from "../pages/Admin/Add/Add";
 import AdminRoot from "../pages/Admin/AdminRoot";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 import Edit from "../pages/Admin/Edit/Edit";
-import Blog from "../pages/Blog/Blog";
+import Blog from "../pages/User/Blog/Blog";
 import AboutMe from "../pages/User/AboutMe/AboutMe";
 import AboutUs from "../pages/User/AboutUs/AboutUs";
 import Basket from "../pages/User/Basket/Basket";
@@ -15,6 +15,8 @@ import Register from "../pages/User/Register/Register";
 import Shop from "../pages/User/Shop/Shop";
 import UserRoot from "../pages/User/UserRoot";
 import Wishlist from "../pages/User/Wishlist/Wishlist";
+import AdminLogin from "../pages/Admin/AdminLogin/AdminLogin";
+import AdminRegister from "../pages/Admin/AdminRegister/AdminRegister";
 
 const ROUTES = [
   {
@@ -62,13 +64,13 @@ const ROUTES = [
         element: <Login />,
       },
       {
-        path:"blog",
-        element:<Blog/>
+        path: "blog",
+        element: <Blog />,
       },
       {
-        path:"error",
-        element:<Error/>
-      }
+        path: "error",
+        element: <Error />,
+      },
     ],
   },
   {
@@ -77,16 +79,24 @@ const ROUTES = [
     children: [
       {
         path: "",
+        element: <AdminLogin />,
+      },
+      {
+        path: "dashboard",
         element: <Dashboard />,
       },
       {
         path: "add",
         element: <Add />,
       },
-   {
-    path:'edit/:id',
-    element:<Edit/>
-   }
+      {
+        path: "edit/:id",
+        element: <Edit />,
+      },
+      {
+       path:"adminRegister",
+       element:<AdminRegister/>
+      }
     ],
   },
 ];

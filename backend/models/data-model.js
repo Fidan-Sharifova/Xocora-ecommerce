@@ -6,7 +6,7 @@ const dataModel= mongoose.model("chocos", new mongoose.Schema({
     desc:String,
     price:Number,
     category:String,
-    isPopular:Boolean
+    isPopular:Bool
 }))
 
 module.exports= dataModel

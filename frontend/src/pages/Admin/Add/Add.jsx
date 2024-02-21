@@ -119,16 +119,15 @@ const Add = () => {
             <div>{formik.errors.category}</div>
           ) : null}
 
-          <label htmlFor="isPopular"></label>
+          <label htmlFor="isPopular">Is Popular</label>
           <input
             className="formikInp"
-            placeholder="Is Popular"
             id="isPopular"
             name="isPopular"
-            type="text"
+            type="checkbox"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.isPopular}
+            checked={formik.values.isPopular}
           />
           {formik.touched.isPopular && formik.errors.isPopular ? (
             <div>{formik.errors.isPopular}</div>
