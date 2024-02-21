@@ -15,7 +15,7 @@ const Add = () => {
       desc: "",
       price: "",
       category: "",
-      isPopular: "",
+      isPopular: false,
     },
     validationSchema: Yup.object({
       image: Yup.string().required("Required"),
@@ -29,7 +29,6 @@ const Add = () => {
       category: Yup.string()
         .max(100, "Must be 20 characters or less")
         .required("Required"),
-      isPopular: Yup.boolean().required("Required"),
     }),
     onSubmit: (values) => {
       axios

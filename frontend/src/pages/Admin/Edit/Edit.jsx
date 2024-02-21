@@ -1,14 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Edit.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import dataContext from "../../../context/dataContext";
-
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useParams } from "react-router";
 
 const Edit = () => {
   const { data, setData } = useContext(dataContext);
+
+  const [update, setUpdate] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    axios.get(`http://localhost:1212/xocora/products/${id}`).then((res) => {
+      setUpdate(res.data);
+    });
+  }, [id]);
+  useEffect(() => {
+    formik.setValues({
+      image: update?.image,
+      name: update?.name,
+      desc: update?.desc,
+      price: update?.price,
+      category: update?.category,
+      isPopular: update?.isPopular,
+    });
+  }, [update]);
   const formik = useFormik({
     initialValues: {
       image: "",
@@ -16,29 +34,29 @@ const Edit = () => {
       desc: "",
       price: "",
       category: "",
-      isPopular: "",
+      isPopular: false,
     },
     validationSchema: Yup.object({
       image: Yup.string().required("Required"),
       name: Yup.string()
-        .max(80, "Must be 20 characters or less")
+        .max(200, "Must be 200 characters or less")
         .required("Required"),
-      desc: Yup.string()
-        .max(200, "Must be 20 characters or less")
-        .required("Required"),
+      desc: Yup.string().required("Required"),
       price: Yup.number().required("Required"),
       category: Yup.string()
-        .max(80, "Must be 20 characters or less")
+        .max(200, "Must be 200 characters or less")
         .required("Required"),
       isPopular: Yup.boolean().required("Required"),
     }),
     onSubmit: (values) => {
       axios
-        .post("http://localhost:1212/xocora/products", { ...values })
+        .put(`http://localhost:1212/xocora/products/${id}`, { ...values })
         .then((res) => {
           setData([...data, values]);
+        })
+        .catch((error) => {
+          console.error("Edit request error:", error);
         });
-      toast.success("New Data Added!");
       formik.resetForm();
     },
   });
@@ -121,7 +139,6 @@ const Edit = () => {
 
         <label htmlFor="isPopular"></label>
         <input
-          className="formikInp"
           placeholder="Is Popular"
           id="isPopular"
           name="isPopular"

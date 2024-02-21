@@ -49,7 +49,7 @@ const adminController = {
     try {
       const { id } = req.params;
       await Admin.findByIdAndDelete(id);
-      res.send("user deleted");
+      res.send("account deleted");
     } catch (error) {
       res.send(error);
     }
@@ -57,4 +57,4 @@ const adminController = {
   edit: async (req, res) => {},
 };
 
-module.exports = { adminController };
+module.exports = adminController ;
