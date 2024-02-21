@@ -20,8 +20,8 @@ const dataControllers = {
   },
   post: async (req, res) => {
     try {
-      const { image, name, desc, price } = req.body;
-      const newData = new dataModel({ image, name, desc, price });
+      const { image, name, desc, category, price } = req.body;
+      const newData = new dataModel({ image, name, desc, category, price });
       await newData.save();
       res.send(newData);
     } catch (error) {

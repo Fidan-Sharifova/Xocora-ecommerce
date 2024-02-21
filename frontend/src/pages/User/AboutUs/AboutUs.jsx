@@ -168,7 +168,7 @@ const AboutUs = () => {
         <div className="right_side">
           <div className="right_side_bcg">
             <img
-              src="https://demo2.wpopal.com/xocora/wp-content/uploads/2023/11/h1_img-1.jpg"
+              src="https://demo2.wpopal.com/xocora/wp-content/uploads/2021/11/About_09.png"
               alt=""
             />
           </div>

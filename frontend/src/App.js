@@ -1,10 +1,11 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider, useNavigate, useNavigation } from "react-router-dom";
 import ROUTES from "./router/index.routes";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dataContext from "./context/dataContext";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
+
 const router = createBrowserRouter(ROUTES);
 function App() {
   const [data, setData] = useState([]);
@@ -23,7 +24,6 @@ function App() {
       ? JSON.parse(localStorage.getItem("basketItems"))
       : []
   );
-  console.log("basket", basket);
   const addToBasket = (item) => {
     const target = basket.find((prod) => prod._id == item._id);
     if (!target) {
@@ -93,7 +93,6 @@ function App() {
       setData([...searchedData]);
       setWishlist([...searchedData]);
     }
-    console.log("data", data);
   };
 
   const addToWishlist = (item) => {

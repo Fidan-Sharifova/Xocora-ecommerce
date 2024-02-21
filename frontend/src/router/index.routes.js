@@ -8,6 +8,7 @@ import AboutUs from "../pages/User/AboutUs/AboutUs";
 import Basket from "../pages/User/Basket/Basket";
 import Contact from "../pages/User/Contact/Contact";
 import Detail from "../pages/User/Detail/Detail";
+import Error from "../pages/User/Error/Error";
 import Home from "../pages/User/Home/Home";
 import Login from "../pages/User/Login/Login";
 import Register from "../pages/User/Register/Register";
@@ -63,6 +64,10 @@ const ROUTES = [
       {
         path:"blog",
         element:<Blog/>
+      },
+      {
+        path:"error",
+        element:<Error/>
       }
     ],
   },
