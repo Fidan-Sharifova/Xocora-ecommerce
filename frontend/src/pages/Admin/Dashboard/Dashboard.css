@@ -50,12 +50,31 @@
   width: 100%;
   height: 200vh;
   display: flex;
+  background-color: rgb(33, 37, 41);
+  padding-top: 5vh;
 }
 .admin-sidebar {
   width: 15%;
   height: 100%;
   background-color: rgb(33, 37, 41);
+
+  ul {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    a {
+      text-decoration: none;
+      color: gray;
+      &:hover {
+        text-decoration: underline;
+        color: white;
+      }
+    }
+  }
 }
+
 .admin-datas-section {
   width: 85%;
   height: 100%;

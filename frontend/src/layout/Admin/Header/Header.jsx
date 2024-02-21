@@ -7,7 +7,11 @@ function Header() {
   const { handleSearch } = useContext(dataContext);
   return (
     <div className="adminNavbar">
-      <h1>Admin Page</h1>
+      <img
+        src="https://demo2.wpopal.com/xocora/wp-content/uploads/2021/11/logo_light.svg"
+        alt=""
+      />
+      <hr />
       <div className="inp_sort">
         <input
           className="admin_search"
@@ -21,12 +25,6 @@ function Header() {
           <li>
             <Link to="/" style={{ color: "white", textDecoration: "none" }}>
               Home Page
-            </Link>
-          </li>
-
-          <li>
-            <Link to="add" style={{ color: "white", textDecoration: "none" }}>
-              Add Product
             </Link>
           </li>
         </ul>
