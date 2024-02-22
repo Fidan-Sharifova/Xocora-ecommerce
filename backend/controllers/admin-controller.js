@@ -31,7 +31,7 @@ const adminController = {
   register: async (req, res) => {
     const { name, surName, email, password } = req.body;
     let admin = await Admin.findOne({ email });
-    if (user) {
+    if (admin) {
       return res.status(404).send("This email is already exist");
     }
     const salt = await bcrypt.genSalt(10);

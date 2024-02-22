@@ -1,11 +1,10 @@
 import React from "react";
-import "./AdminLogin.css"
+import "./AdminLogin.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
-
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -22,10 +21,10 @@ const AdminLogin = () => {
     }),
     onSubmit: (values) => {
       axios
-        .post("", { ...values })
+        .post("http://localhost:1212/admins/login", { ...values })
         .then((res) => {
           toast.success(`${res.data.name} Welcome Back!`);
-          navigate("/");
+          navigate("/admin/dashboard");
         })
         .catch((error) => {
           toast.error("Email or Password incorrect");
@@ -35,7 +34,6 @@ const AdminLogin = () => {
   });
   return (
     <div className="login-page">
-
       <div className="login-box">
         <form onSubmit={formik.handleSubmit}>
           <h3>Log in</h3>
@@ -73,7 +71,6 @@ const AdminLogin = () => {
           <button type="submit" className="submit-btn admin-submit-btn">
             Submit
           </button>
-          
         </form>
       </div>
     </div>

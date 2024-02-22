@@ -113,7 +113,7 @@ function Dashboard() {
         <div className="admin-sidebar">
           <ul>
             <li>
-              <Link to={"/admin"} onClick={handleProductsDataClick}>
+              <Link onClick={handleProductsDataClick}>
                 Product Datas
               </Link>
             </li>

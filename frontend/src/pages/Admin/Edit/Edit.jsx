@@ -139,14 +139,15 @@ const Edit = () => {
 
         <label htmlFor="isPopular"></label>
         <input
-          placeholder="Is Popular"
           id="isPopular"
           name="isPopular"
-          type="text"
+          type="checkbox"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.isPopular}
+          checked={formik.values.isPopular}
         />
+        <label htmlFor="isPopular">Is Popular</label>
+
         {formik.touched.isPopular && formik.errors.isPopular ? (
           <div>{formik.errors.isPopular}</div>
         ) : null}

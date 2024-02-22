@@ -94,7 +94,7 @@ const ROUTES = [
         element: <Edit />,
       },
       {
-       path:"adminRegister",
+       path:"register",
        element:<AdminRegister/>
       }
     ],

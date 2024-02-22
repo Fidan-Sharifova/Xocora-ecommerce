@@ -26,7 +26,6 @@ const Register = () => {
       password: Yup.string()
         .max(20, "Must be 20 characters or less")
         .required("Required"),
-      age: Yup.number().required("Required"),
     }),
     onSubmit: (values) => {
       axios

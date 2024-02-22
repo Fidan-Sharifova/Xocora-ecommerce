@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/xocora/products", router);
 app.use("/users", ROUTER);
-app.use("/admin-datas", adminRouter)
+app.use("/admins", adminRouter)
 mongoose
   .connect(
     "mongodb+srv://Fidan_Sharifova:fidan_2004@cluster0.zlx6suq.mongodb.net/"
