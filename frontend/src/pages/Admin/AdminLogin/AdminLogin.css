@@ -1,3 +1,6 @@
 .admin-submit-btn {
-  background-color: rgb(34,38,42);
+  background-color: rgb(34, 38, 42);
+}
+.login-page {
+  height: 30vh;
 }

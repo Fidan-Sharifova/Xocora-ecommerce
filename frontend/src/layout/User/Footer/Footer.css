@@ -1,12 +1,13 @@
 .footer {
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 100px;
   background-color: rgb(246, 244, 242);
   flex-direction: column;
+  margin-top: 30px;
 }
 .footer-text-area {
   width: 100%;

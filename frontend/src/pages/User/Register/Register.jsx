@@ -10,12 +10,12 @@ import dataContext from "../../../context/dataContext";
 const Register = () => {
   const { usersDatas } = useContext(dataContext);
   const navigate = useNavigate();
-    const toTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    };
+  const toTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -36,18 +36,12 @@ const Register = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      
-       
-            axios
-              .post("http://localhost:1212/users/register", values)
-              .then((res) => {
-                toast.success("Successfully registered.");
-                navigate("/");
-              })
-              
-            formik.resetForm();
-       
-        
+      axios.post("http://localhost:1212/users/register", values).then((res) => {
+        toast.success("Successfully registered.");
+        navigate("/");
+      });
+
+      formik.resetForm();
     },
   });
 
