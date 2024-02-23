@@ -63,6 +63,7 @@ function Dashboard() {
             <td>{user.email}</td>
             <td>
               <button
+                className="deleteBtn"
                 type="button"
                 onClick={() => {
                   deleteUser(user._id);

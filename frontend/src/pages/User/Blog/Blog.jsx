@@ -20,7 +20,7 @@ const Blog = () => {
         <h1>Blog</h1>
       </div>
       <section className="blog-grid-section">
-        <div className="row">
+        <div className="row blog-row">
           <div className="col-4">
             <div className="blog-card">
               <div className="blog-card-img">
