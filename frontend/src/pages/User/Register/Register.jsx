@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import dataContext from "../../../context/dataContext";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { usersDatas } = useContext(dataContext);
@@ -48,7 +49,11 @@ const Register = () => {
   return (
     <div className="register-page">
       <div className="other-page-header-backg"></div>
-
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="register-box">
         {" "}
         <form className="register-form" onSubmit={formik.handleSubmit}>

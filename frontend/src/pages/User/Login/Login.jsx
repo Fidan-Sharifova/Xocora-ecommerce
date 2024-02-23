@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,7 +37,11 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="other-page-header-backg"></div>
-
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="login-box">
         <form onSubmit={formik.handleSubmit}>
           <h3>Log in</h3>

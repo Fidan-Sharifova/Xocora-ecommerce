@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const AdminRegister = () => {
   const navigate = useNavigate();
@@ -43,6 +44,11 @@ const AdminRegister = () => {
     <div>
       <div className="register-box">
         {" "}
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Register</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+        </Helmet>
         <form className="register-form" onSubmit={formik.handleSubmit}>
           <h1>Register</h1>
           <label htmlFor="name"></label>
