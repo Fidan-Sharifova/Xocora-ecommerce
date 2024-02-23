@@ -11,6 +11,8 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [original, setOriginal] = useState([]);
+  const [usersDatas, setUsersDatas] = useState([]);
+
   const [wishlist, setWishlist] = useState(
     localStorage.getItem("wishlist")
       ? JSON.parse(localStorage.getItem("wishlist"))
@@ -156,6 +158,8 @@ function App() {
     increaseCountBasket,
     removeFromBasket,
     handleDelete,
+    usersDatas,
+    setUsersDatas,
   };
   return (
     <dataContext.Provider value={values}>

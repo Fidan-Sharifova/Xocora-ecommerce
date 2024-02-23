@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Register.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import dataContext from "../../../context/dataContext";
 
 const Register = () => {
+  const { usersDatas } = useContext(dataContext);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -29,15 +31,26 @@ const Register = () => {
     }),
     onSubmit: (values) => {
       axios
-        .post("http://localhost:1212/users/register", values)
+        .get(`http://localhost:1212/users?email=${values.email}`)
         .then((res) => {
-          toast.success("register olundu");
-          navigate("/");
+          if (res.data.length > 0) {
+            toast.error("This email is already in use.");
+          } else {
+            axios
+              .post("http://localhost:1212/users/register", values)
+              .then((res) => {
+                toast.success("Successfully registered.");
+                navigate("/");
+              })
+              .catch((error) => {
+                console.error("Hata oluştu:", error);
+              });
+            formik.resetForm();
+          }
         })
         .catch((error) => {
-          console.error("Error occurred:", error);
+          console.error("Hata oluştu:", error);
         });
-      formik.resetForm();
     },
   });
 
@@ -93,6 +106,10 @@ const Register = () => {
           {formik.touched.email && formik.errors.email ? (
             <div>{formik.errors.email}</div>
           ) : null}
+          {formik.values.email &&
+          usersDatas.some((user) => user.email === formik.values.email)
+            ? alert("mail var")
+            : null}
 
           <label htmlFor="password"></label>
           <input

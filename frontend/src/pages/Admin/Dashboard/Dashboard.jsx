@@ -8,28 +8,42 @@ import toast from "react-hot-toast";
 
 function Dashboard() {
   const { handleDelete, data, setData } = useContext(dataContext);
-  const [usersDatas, setUsersDatas] = useState([]);
   const [isUsersDataVisible, setIsUsersDataVisible] = useState(false);
+  const {usersDatas, setUsersDatas}= useContext(dataContext)
 
   useEffect(() => {
-    axios.get("http://localhost:1212/users/").then((res) => {
-      setUsersDatas(res.data);
-    });
-  }, []);
+    axios
+      .get("http://localhost:1212/users/")
+      .then((res) => {
+        setUsersDatas(res.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
 
-  useEffect(() => {
-    axios.get("http://localhost:1212/xocora/products").then((res) => {
-      setData(res.data);
-    });
-  }, []);
+    axios
+      .get("http://localhost:1212/xocora/products")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching product data:", error);
+      });
+  }, [setData]);
 
   const deleteUser = (id) => {
-    axios.delete(`http://localhost:1212/users/${id}`).then((res) => {
-      const deletedUser = data.filter((user) => user._id !== id);
-      setUsersDatas(deletedUser);
-    });
-    toast.success("User Account Deleted Successfully!");
+    axios
+      .delete(`http://localhost:1212/users/${id}`)
+      .then((res) => {
+        const deletedUser = usersDatas.filter((user) => user._id !== id);
+        setUsersDatas(deletedUser);
+        toast.success("User Account Deleted Successfully!");
+      })
+      .catch((error) => {
+        console.error("Error deleting user:", error);
+      });
   };
+
   const handleUsersDataClick = () => {
     setIsUsersDataVisible(true);
   };
@@ -47,14 +61,16 @@ function Dashboard() {
             <td>{user.name}</td>
             <td>{user.surName}</td>
             <td>{user.email}</td>
-            <button
-              type="button"
-              onClick={() => {
-                deleteUser(user._id);
-              }}
-            >
-              Delete
-            </button>
+            <td>
+              <button
+                type="button"
+                onClick={() => {
+                  deleteUser(user._id);
+                }}
+              >
+                Delete
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
@@ -63,10 +79,13 @@ function Dashboard() {
 
   const renderProductsData = () => {
     return (
+      
       <tbody>
         {data.map((item, index) => (
           <tr key={index}>
+            
             <th scope="row">{index + 1}</th>
+          
             <td>
               <img src={item.image} alt="" />
             </td>
@@ -113,26 +132,24 @@ function Dashboard() {
         <div className="admin-sidebar">
           <ul>
             <li>
-              <Link onClick={handleProductsDataClick}>
+              <Link to="" onClick={handleProductsDataClick}>
                 Product Datas
               </Link>
             </li>
             <li>
-              <Link to={""} onClick={handleUsersDataClick}>Users Datas</Link>
+              <Link to="" onClick={handleUsersDataClick}>
+                Users Datas
+              </Link>
             </li>
             <li>
-              <Link to={"/admin/add"}>Add Products</Link>
-            </li>
-            <li>
-              <Link></Link>
+              <Link to="/admin/add">Add Products</Link>
             </li>
           </ul>
         </div>
         <div className="admin-datas-section">
           <table className="table table-striped table-dark admin-table">
-            <thead></thead>
+          
             {isUsersDataVisible ? renderUsersData() : renderProductsData()}
-            <td> </td>
           </table>
         </div>
       </div>

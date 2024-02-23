@@ -61,7 +61,7 @@ const Edit = () => {
     },
   });
   return (
-    <div>
+    <div className="editPage">
       <form onSubmit={formik.handleSubmit} className="admin-form">
         <label htmlFor="Image"></label>
         <input
@@ -137,20 +137,21 @@ const Edit = () => {
           <div>{formik.errors.category}</div>
         ) : null}
 
-        <label htmlFor="isPopular"></label>
-        <input
-          id="isPopular"
-          name="isPopular"
-          type="checkbox"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          checked={formik.values.isPopular}
-        />
-        <label htmlFor="isPopular">Is Popular</label>
+        <div className="isPopularBox">
+          <label htmlFor="isPopular">Is Popular</label>
+          <input
+            id="isPopular"
+            name="isPopular"
+            type="checkbox"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            checked={formik.values.isPopular}
+          />
 
-        {formik.touched.isPopular && formik.errors.isPopular ? (
-          <div>{formik.errors.isPopular}</div>
-        ) : null}
+          {formik.touched.isPopular && formik.errors.isPopular ? (
+            <div>{formik.errors.isPopular}</div>
+          ) : null}
+        </div>
 
         <button className="submit-btn" type="submit">
           Submit
