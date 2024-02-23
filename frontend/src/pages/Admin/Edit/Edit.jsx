@@ -5,11 +5,11 @@ import * as Yup from "yup";
 import dataContext from "../../../context/dataContext";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const Edit = () => {
   const { data, setData } = useContext(dataContext);
-
+  const navigate= useNavigate()
   const [update, setUpdate] = useState({});
   const { id } = useParams();
   useEffect(() => {
@@ -52,12 +52,14 @@ const Edit = () => {
       axios
         .put(`http://localhost:1212/xocora/products/${id}`, { ...values })
         .then((res) => {
-          setData([...data, values]);
+          setData(data.map((item) => (item._id === id ? values : item)));
+          toast.success("Item edited successfully.");
         })
         .catch((error) => {
           console.error("Edit request error:", error);
         });
       formik.resetForm();
+      navigate("/admin/dashboard");
     },
   });
   return (
@@ -146,6 +148,7 @@ const Edit = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             checked={formik.values.isPopular}
+            value={false}
           />
 
           {formik.touched.isPopular && formik.errors.isPopular ? (

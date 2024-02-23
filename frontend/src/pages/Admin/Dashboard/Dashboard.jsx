@@ -10,7 +10,7 @@ function Dashboard() {
   const { handleDelete, data, setData } = useContext(dataContext);
   const [isUsersDataVisible, setIsUsersDataVisible] = useState(false);
   const {usersDatas, setUsersDatas}= useContext(dataContext)
-
+  
   useEffect(() => {
     axios
       .get("http://localhost:1212/users/")

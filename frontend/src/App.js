@@ -1,4 +1,10 @@
-import { createBrowserRouter, Navigate, RouterProvider, useNavigate, useNavigation } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import ROUTES from "./router/index.routes";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -76,16 +82,22 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:1212/xocora/products/${id}`).then((res) => {
-      const deletedData = data.filter((prod) => prod._id !== id);
-      setData(deletedData);
-    });
-    toast.success("Item deleted");
+    axios
+      .delete(`http://localhost:1212/xocora/products/${id}`)
+      .then((res) => {
+        const deletedData = data.filter((prod) => prod._id !== id);
+        setData(deletedData);
+        toast.success("Item deleted");
+      })
+      .catch((error) => {
+        console.error("Error deleting product:", error);
+        toast.error("An error occurred while deleting the product.");
+      });
   };
 
   const handleSearch = (e) => {
     const searching = e.target.value.trim().toLowerCase();
-    if (searching === "") {
+    if (searching == "") {
       setData([...original]);
       setWishlist([...original]);
     } else {

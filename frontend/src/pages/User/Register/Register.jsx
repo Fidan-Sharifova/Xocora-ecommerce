@@ -10,6 +10,12 @@ import dataContext from "../../../context/dataContext";
 const Register = () => {
   const { usersDatas } = useContext(dataContext);
   const navigate = useNavigate();
+    const toTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -30,27 +36,18 @@ const Register = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      axios
-        .get(`http://localhost:1212/users?email=${values.email}`)
-        .then((res) => {
-          if (res.data.length > 0) {
-            toast.error("This email is already in use.");
-          } else {
+      
+       
             axios
               .post("http://localhost:1212/users/register", values)
               .then((res) => {
                 toast.success("Successfully registered.");
                 navigate("/");
               })
-              .catch((error) => {
-                console.error("Hata oluştu:", error);
-              });
+              
             formik.resetForm();
-          }
-        })
-        .catch((error) => {
-          console.error("Hata oluştu:", error);
-        });
+       
+        
     },
   });
 
@@ -126,7 +123,7 @@ const Register = () => {
             <div>{formik.errors.password}</div>
           ) : null}
 
-          <button type="submit" className="submit-btn">
+          <button onClick={toTop} type="submit" className="submit-btn">
             Submit
           </button>
         </form>
